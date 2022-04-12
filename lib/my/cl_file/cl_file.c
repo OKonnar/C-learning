@@ -10,7 +10,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void print_cl_file(liste_t *list)
+void cl_print_file(liste_t *list)
 {
     liste_t *tmp = list;
 
@@ -18,7 +18,7 @@ void print_cl_file(liste_t *list)
         print_str(tmp->data);
 }
 
-void free_cl_file(liste_t *list)
+void cl_free_file(liste_t *list)
 {
     for (liste_t *tmp; list != NULL;) {
         tmp = list;
@@ -61,7 +61,7 @@ void cl_file(char *path, liste_t **list)
 
     stream = fopen(path, "r");
     buf = malloc(sizeof(char) * bufsize);
-    while (nread = getline(&buf, &bufsize, stream) != -1)
+    while (nread = getline(&buf, &bufsize, stdin) != -1)
         add_buffnode(list, buf);
     fclose(stream);
     free(buf);

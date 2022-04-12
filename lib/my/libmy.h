@@ -21,8 +21,8 @@ int str_cmp(char *a, char *b);
 int str_ncmp(const char *a, const char *b, int s);
 
 void cl_file(char *path, liste_t **list);
-void print_cl_file(liste_t *list);
-void free_cl_file(liste_t *list);
+void cl_print_file(liste_t *list);
+void cl_free_file(liste_t *list);
 
 void *cl_malloc(int size, mall_t **head);
 void cl_free_malloc(mall_t *mall);
