@@ -7,14 +7,6 @@
 
 #include "../libmy.h"
 
-int is_char(char c) {
-    if (c >= 'a' && c <= 'z')
-        return 1;
-    if (c >= 'A' && c <= 'Z')
-        return 1;
-    return 0;
-}
-
 char *str_uppercase(char *str)
 {
     for (int i = 0; str[i] != '\0'; i++)
@@ -40,7 +32,7 @@ char *str_capitalize(char *str)
             str[i] -= 32;
             stc = 0;
         }
-        if (is_char(str[i]) == 0)
+        if (str_ischar(str[i]) == 0)
             stc = 1;
     }
     return str;
