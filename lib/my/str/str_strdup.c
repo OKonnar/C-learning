@@ -5,11 +5,11 @@
 ** str_duplicate.c
 */
 
-#include <stdlib.h>
+#include "../libmy.h"
 
-int str_length(const char *str);
+#include "stdlib.h"
 
-char *str_duplicate(char *src)
+char *str_strdup(char *src)
 {
     char *str = malloc(str_length(src) + 1);
     int i = 0;

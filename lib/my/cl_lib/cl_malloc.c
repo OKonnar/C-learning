@@ -10,7 +10,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-void cl_free_malloc(mall_t *mall)
+void cl_free(mall_t *mall)
 {
     for (mall_t *tmp; mall != NULL;) {
         tmp = mall;

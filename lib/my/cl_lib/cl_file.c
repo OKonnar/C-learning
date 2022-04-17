@@ -10,7 +10,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void cl_print_file(liste_t *list)
+void cl_printfile(liste_t *list)
 {
     liste_t *tmp = list;
 
@@ -18,7 +18,7 @@ void cl_print_file(liste_t *list)
         print_str(tmp->data);
 }
 
-void cl_free_file(liste_t *list)
+void cl_freefile(liste_t *list)
 {
     for (liste_t *tmp; list != NULL;) {
         tmp = list;
@@ -47,12 +47,12 @@ static void add_buffnode(liste_t **head, char *buf)
 {
     liste_t *wagon = malloc(sizeof(liste_t));
 
-    wagon->data = str_duplicate(buf);
+    wagon->data = str_strdup(buf);
     wagon->next = (*head);
     (*head) = wagon;
 }
 
-void cl_file(char *path, liste_t **list)
+void cl_getfile(char *path, liste_t **list)
 {
     FILE *stream;
     size_t nread;
@@ -61,7 +61,7 @@ void cl_file(char *path, liste_t **list)
 
     stream = fopen(path, "r");
     buf = malloc(sizeof(char) * bufsize);
-    while (nread = getline(&buf, &bufsize, stdin) != -1)
+    while (nread = getline(&buf, &bufsize, stream) != -1)
         add_buffnode(list, buf);
     fclose(stream);
     free(buf);

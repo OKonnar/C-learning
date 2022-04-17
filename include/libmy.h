@@ -16,15 +16,21 @@ void print_arr(char **arr);
 
 int str_length(const char *str);
 char *str_reverse(char *str);
-char *str_duplicate(char const *src);
-int str_cmp(char *a, char *b);
-int str_ncmp(const char *a, const char *b, int s);
+int str_find(char *src, char *find);
+char *str_strdup(char *src);
+char *str_uppercase(char *str);
+char *str_lowercase(char *str);
+char *str_capitalize(char *str);
 
-void cl_file(char *path, liste_t **list);
-void cl_print_file(liste_t *list);
-void cl_free_file(liste_t *list);
+void cl_getfile(char *path, liste_t **list);
+void cl_printfile(liste_t *list);
+void cl_freefile(liste_t *list);
 
 void *cl_malloc(int size, mall_t **head);
-void cl_free_malloc(mall_t *mall);
+void cl_free(mall_t *mall);
+
+char *cl_strdup(char *src, mall_t **mal);
+char *cl_strcat(char *src, char *cat, mall_t **mal);
+char *cl_strncat(char *src, char *cat, int size, mall_t **mal);
 
 #endif
