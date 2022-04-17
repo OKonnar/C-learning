@@ -37,8 +37,8 @@ char *str_capitalize(char *str)
 
     for (int i = 0; str[i] != '\0'; i++) {
         if (str[i] >= 'a' && str[i] <= 'z' && stc == 1) {
-            str[i] - 32;
-            stc == 0;
+            str[i] -= 32;
+            stc = 0;
         }
         if (is_char(str[i]) == 0)
             stc = 1;
