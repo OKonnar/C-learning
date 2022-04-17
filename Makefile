@@ -15,6 +15,7 @@ fclean: clean
 	@make -s -C ./game_files fclean
 	@make -s -C ./lib/my fclean
 	@rm -f clay
+	@rm -fR info
 
 re:	fclean all
 

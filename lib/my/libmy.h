@@ -39,6 +39,6 @@ char *cl_strdup(char *src, mall_t **mal);
 char *cl_strcat(char *src, char *cat, mall_t **mal);
 char *cl_strncat(char *src, char *cat, int size, mall_t **mal);
 char **cl_stwa(char *str, mall_t **mal);
-void cl_sort_array(char ***arr);
+char **cl_sort_array(char **arr);
 
 #endif
