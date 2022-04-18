@@ -33,9 +33,8 @@ int is_sorted(char **arr)
 
 char **cl_sort_array(char **arr)
 {
-    while (is_sorted(arr) == 0) {
+    while (is_sorted(arr) == 0)
         for (int i = 0; arr[i + 1] != NULL; i++)
             check_swap(arr, i);
-    }
     return arr;
 }

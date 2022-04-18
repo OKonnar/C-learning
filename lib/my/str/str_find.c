@@ -27,9 +27,8 @@ int str_find(char *src, char *find)
 
     if (str_length(find) == 0 || str_length(src) == 0)
         return -1;
-    for (int src_pnt = 0; src[src_pnt] != '\0'; src_pnt++) {
+    for (int src_pnt = 0; src[src_pnt] != '\0'; src_pnt++)
         if (is_find(src, find, src_pnt) == 1)
             return src_pnt;
-    }
     return -1;
 }
