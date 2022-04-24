@@ -7,7 +7,7 @@
 
 #include "../libmy.h"
 
-void malloc_str(char ***arr, char *str, mall_t **mal)
+void *malloc_str(char ***arr, char *str, mall_t **mal)
 {
     int stc = 1;
     int pnt = 0;

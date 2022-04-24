@@ -18,6 +18,7 @@ all:	$(NAME)
 $(NAME):	$(OBJ)
 	ar rc $(NAME) $(OBJ)
 	cp libmy.h ../../include
+	cp libstruct.h ../../include
 	$(RM) $(OBJ)
 
 clean:

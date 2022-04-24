@@ -8,7 +8,7 @@
 #ifndef CLAYMORE_H
     #define CLAYMORE_H
 
-#include "struct.h"
+#include "libstruct.h"
 
 void print_str(const char *str);
 void print_int(long long int i);
@@ -28,7 +28,7 @@ int str_cmp(char *a, char *b);
 int str_ncmp(char *a, char *b, int s);
 void str_swap(char **s1, char **s2);
 
-void cl_getfile(char *path, liste_t **list);
+void *cl_getfile(char *path, liste_t **list);
 void cl_printfile(liste_t *list);
 void cl_freefile(liste_t *list);
 

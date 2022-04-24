@@ -36,33 +36,42 @@ static void rev_list(liste_t **begin)
 
     while ((*begin) != NULL) {
         temp = (*begin)->next;
-        (*begin)->next  = backup;
+        (*begin)->next = backup;
         backup = (*begin);
         (*begin) = temp;
     }
     (*begin) = backup;
 }
 
-static void add_buffnode(liste_t **head, char *buf)
+static void *add_buffnode(liste_t **head, char *buf)
 {
     liste_t *wagon = malloc(sizeof(liste_t));
 
+    if (wagon == NULL)
+        return NULL;
     wagon->data = str_strdup(buf);
     wagon->next = (*head);
     (*head) = wagon;
 }
 
-void cl_getfile(char *path, liste_t **list)
+void *cl_getfile(char *path, liste_t **list)
 {
     FILE *stream;
     size_t nread;
     size_t bufsize = 64;
     char *buf;
 
-    stream = fopen(path, "r");
-    buf = malloc(sizeof(char) * bufsize);
-    while (nread = getline(&buf, &bufsize, stream) != -1)
-        add_buffnode(list, buf);
+    if ((stream = fopen(path, "r")) == NULL)
+        return NULL;
+    if ((buf = malloc(sizeof(char) * bufsize)) == NULL)
+        return NULL;
+    while (nread = getline(&buf, &bufsize, stream) != -1) {
+        if (add_buffnode(list, buf) == NULL) {
+            fclose(stream);
+            free(buf);
+            return NULL;
+        }
+    }
     fclose(stream);
     free(buf);
     rev_list(list);

@@ -7,12 +7,14 @@
 
 #include "../include/include.h"
 
+// ============================== taille =======================================
+
 int main(void)
 {
-    int lettre = 0;
-    write(1, "abcdefghijklmnopqrstuvxyz", 26);
+    liste_t *list = NULL;
+    if (cl_getfile("Makefile", &list) == NULL)
+        return 84;
 
-    for (; lettre != 122; lettre++)
-        write(1, &lettre, 1);
+    cl_printfile(list);
     return 0;
 }

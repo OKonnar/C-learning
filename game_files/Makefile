@@ -5,7 +5,7 @@
 ## Makefile
 ##
 
-NAME =	clay
+NAME =	name
 
 SRC = $(shell find -name "*.c")
 
@@ -33,8 +33,3 @@ fclean: clean
 re:	fclean all
 
 .PHONY:	all clean fclean re
-
-git: fclean
-	git add .
-	git commit -m "Hallowed be thy name !"
-	git push

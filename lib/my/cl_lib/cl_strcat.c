@@ -7,12 +7,16 @@
 
 #include "../libmy.h"
 
+#include <stdio.h>
+
 char *cl_strcat(char *src, char *cat, mall_t **mal)
 {
     char *new = cl_malloc((str_length(src) + str_length(cat) + 1), mal);
     int pnt = 0;
 
     new[str_length(src) + str_length(cat)] = '\0';
+    if (new == NULL)
+        return NULL;
     for (int i = 0; i < str_length(src); i++, pnt++)
         new[pnt] = src[i];
     for (int i = 0; i < str_length(cat); i++, pnt++)
@@ -30,7 +34,8 @@ char *cl_strncat(char *src, char *cat, int size, mall_t **mal)
         real = size;
     else
         real = str_length(cat);
-    new = cl_malloc((str_length(src) + real + 1), mal);
+    if ((new = cl_malloc((str_length(src) + real + 1), mal)) == NULL)
+        return NULL;
     new[str_length(src) + real] = '\0';
     for (int i = 0; i < str_length(src); i++, pnt++)
         new[pnt] = src[i];
