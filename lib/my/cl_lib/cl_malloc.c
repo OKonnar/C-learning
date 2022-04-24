@@ -24,8 +24,8 @@ void cl_free(mall_t *mall)
 void *cl_malloc(int size, mall_t **head)
 {
     mall_t *wagon = malloc(sizeof(mall_t));
-    wagon->data = malloc(size);
 
+    wagon->data = malloc(size);
     wagon->next = (*head);
     (*head) = wagon;
     return wagon->data;

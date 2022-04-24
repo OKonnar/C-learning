@@ -12,6 +12,7 @@
 int is_find(char *src, char *find, int src_pnt)
 {
     int find_pnt = 0;
+
     for (; src[src_pnt] != '\0'; find_pnt++, src_pnt++) {
         if (find[find_pnt] == '\0')
             return 1;
