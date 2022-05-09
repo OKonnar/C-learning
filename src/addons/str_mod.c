@@ -5,7 +5,7 @@
 ** str_mod.c
 */
 
-#include "../libmy.h"
+#include "../../include/include.h"
 
 char *str_uppercase(char *str)
 {

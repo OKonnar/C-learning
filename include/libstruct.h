@@ -16,3 +16,8 @@ typedef struct mall_s {
     void *data;
     struct mall_s* next;
 } mall_t;
+
+typedef struct cl_s {
+    mall_t *mall;
+    liste_t *list;
+} cl_t;

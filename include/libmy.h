@@ -28,17 +28,15 @@ int str_cmp(char *a, char *b);
 int str_ncmp(char *a, char *b, int s);
 void str_swap(char **s1, char **s2);
 
-void *cl_getfile(char *path, liste_t **list);
+void *cl_getfile(char *path, cl_t **cl);
 void cl_printfile(liste_t *list);
 void cl_freefile(liste_t *list);
-
 void *cl_malloc(int size, mall_t **head);
-void cl_free(mall_t *mall);
-
+cl_t *cl_init();
+void cl_free(cl_t *cl);
 char *cl_strdup(char *src, mall_t **mal);
 char *cl_strcat(char *src, char *cat, mall_t **mal);
 char *cl_strncat(char *src, char *cat, int size, mall_t **mal);
-char **cl_stwa(char *str, mall_t **mal);
 char **cl_sort_array(char **arr);
 
 #endif

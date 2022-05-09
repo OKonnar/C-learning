@@ -5,16 +5,26 @@
 ## Makefile
 ##
 
-all:
-		@make -s -C ./game_files
+NAME =	name
+
+SRC = $(shell find -name "*.c")
+
+OBJ	=	$(SRC:.c=.o)
+
+CFLAGS = -g
+
+all:	$(NAME)
+		@gcc -g -o $(NAME) $(OBJ) $(LIB)
+		@rm -f $(OBJ)
 
 clean:
-	@rm -f clay
+	@rm -f $(NAME)
+
+$(NAME):	$(OBJ)
 
 fclean: clean
-	@make -s -C ./game_files fclean
-	@make -s -C ./lib/my fclean
-	@rm -f name
+	@rm -f *.
+	@rm -f ~*
 
 re:	fclean all
 

@@ -5,7 +5,7 @@
 ** str_duplicate.c
 */
 
-#include "../libmy.h"
+#include "../../include/include.h"
 
 #include <stdio.h>
 

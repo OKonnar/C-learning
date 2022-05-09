@@ -5,7 +5,7 @@
 ** str_check.c
 */
 
-#include "../libmy.h"
+#include "../../include/include.h"
 
 int str_ischar(char c)
 {

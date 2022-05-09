@@ -5,7 +5,7 @@
 ** str_reverse.c
 */
 
-#include "../libmy.h"
+#include "../../include/include.h"
 
 char *str_reverse(char *str)
 {

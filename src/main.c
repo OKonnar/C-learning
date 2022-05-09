@@ -11,10 +11,10 @@
 
 int main(void)
 {
-    liste_t *list = NULL;
-    if (cl_getfile("Makefile", &list) == NULL)
-        return 84;
+    cl_t *cl = cl_init();
 
-    cl_printfile(list);
+    cl_getfile("Makefile", &cl);
+    cl_printfile(cl->list);
+    cl_free(cl);
     return 0;
 }

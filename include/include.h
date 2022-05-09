@@ -18,7 +18,6 @@
     #include <sys/stat.h>
     #include <math.h>
 
-    #include "../lib/my/libmy.h"
     #include "./structures.h"
     #include "./functions.h"
 

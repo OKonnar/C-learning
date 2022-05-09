@@ -5,7 +5,7 @@
 ** gfile.c
 */
 
-#include "../libmy.h"
+#include "../../include/include.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -16,17 +16,6 @@ void cl_printfile(liste_t *list)
 
     for (; tmp != NULL; tmp = tmp->next)
         print_str(tmp->data);
-}
-
-void cl_freefile(liste_t *list)
-{
-    for (liste_t *tmp; list != NULL;) {
-        tmp = list;
-        free(tmp->data);
-        list = list->next;
-        free(tmp);
-    }
-    free(list);
 }
 
 static void rev_list(liste_t **begin)
@@ -43,18 +32,18 @@ static void rev_list(liste_t **begin)
     (*begin) = backup;
 }
 
-static void *add_buffnode(liste_t **head, char *buf)
+static void *add_buffnode(cl_t **cl, char *buf)
 {
-    liste_t *wagon = malloc(sizeof(liste_t));
+    liste_t *wagon = cl_malloc(sizeof(liste_t), &(*cl)->mall);
 
     if (wagon == NULL)
         return NULL;
-    wagon->data = str_strdup(buf);
-    wagon->next = (*head);
-    (*head) = wagon;
+    wagon->data = cl_strdup(buf, &(*cl)->mall);
+    wagon->next = (*cl)->list;
+    (*cl)->list = wagon;
 }
 
-void *cl_getfile(char *path, liste_t **list)
+void *cl_getfile(char *path, cl_t **cl)
 {
     FILE *stream;
     size_t nread;
@@ -63,10 +52,10 @@ void *cl_getfile(char *path, liste_t **list)
 
     if ((stream = fopen(path, "r")) == NULL)
         return NULL;
-    if ((buf = malloc(sizeof(char) * bufsize)) == NULL)
+    if ((buf = cl_malloc(sizeof(char) * bufsize, &(*cl)->mall)) == NULL)
         return NULL;
     while (nread = getline(&buf, &bufsize, stream) != -1) {
-        if (add_buffnode(list, buf) == NULL) {
+        if (add_buffnode(cl, buf) == NULL) {
             fclose(stream);
             free(buf);
             return NULL;
@@ -74,5 +63,5 @@ void *cl_getfile(char *path, liste_t **list)
     }
     fclose(stream);
     free(buf);
-    rev_list(list);
+    rev_list(&(*cl)->list);
 }

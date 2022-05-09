@@ -5,7 +5,7 @@
 ** cl_strcat.c
 */
 
-#include "../libmy.h"
+#include "../../include/include.h"
 
 #include <stdio.h>
 

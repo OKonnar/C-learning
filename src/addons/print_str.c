@@ -5,7 +5,7 @@
 ** print_str.c
 */
 
-#include "../libmy.h"
+#include "../../include/include.h"
 
 #include <unistd.h>
 
